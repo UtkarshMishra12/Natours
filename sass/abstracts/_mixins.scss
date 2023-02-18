@@ -5,3 +5,36 @@
         clear: both;
     }
 }
+
+//MEDIA QUERY MANAGER
+//0-600Px For Mobile Phone
+//600-900PxFor Tablet Port.
+//900-1200Px For Tablet Lands.
+//1200-1800Px Is where normal style applys
+//1800+Px For Big Screen
+
+
+@mixin repond-phone{
+    @media (max-width:600px){@content};
+}
+
+//$breakpoint choices
+//1. phone
+//2. tab-port
+//3. tab-land
+//4. big-desktop
+//1em=16px
+@mixin respond($breakpoint){
+    @if $breakpoint==phone{
+        @media (max-width:37.5em){@content}; //600px
+    }
+    @if $breakpoint==tab-port{
+        @media (max-width:56.25){@content}; //900px
+    }
+    @if $breakpoint==tab-land{
+        @media (max-width:75em){@content}; //1200px
+    }
+    @if $breakpoint==big-desktop{
+        @media (min-width:112.5em){@content}; //1800px
+    }
+}
